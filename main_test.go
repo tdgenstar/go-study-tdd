@@ -18,6 +18,13 @@ func TestHello(t *testing.T) {
 			},
 			want: "Hello, Teddy",
 		},
+		{
+			name: "it should empty name, then print 'World'",
+			args: args{
+				name: "",
+			},
+			want: "Hello, World",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
