@@ -36,6 +36,14 @@ func TestHello(t *testing.T) {
 			},
 			want: "Hola, World",
 		},
+		{
+			name: "이름은 teddy, 언어는 spanish 라면 'Hola, teddy' 출력",
+			args: args{
+				name:     "teddy",
+				language: spanish,
+			},
+			want: "Hola, teddy",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
