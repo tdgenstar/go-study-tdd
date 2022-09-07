@@ -29,10 +29,10 @@ func TestHello(t *testing.T) {
 			want: "Hello, World",
 		},
 		{
-			name: "it should language == spanish and empty name, then Hola, world",
+			name: "it should language == spanish and empty name, then Hola, World",
 			args: args{
 				name:     "",
-				language: "",
+				language: spanish,
 			},
 			want: "Hola, World",
 		},
