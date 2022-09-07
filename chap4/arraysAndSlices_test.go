@@ -4,7 +4,7 @@ import "testing"
 
 func TestSum(t *testing.T) {
 	type args struct {
-		numbers [5]int
+		numbers []int
 	}
 	tests := []struct {
 		name string
@@ -14,9 +14,23 @@ func TestSum(t *testing.T) {
 		{
 			name: "숫자 1,2,3,4,5 를 입력하면 총 합 15를 반환",
 			args: args{
-				numbers: [5]int{1, 2, 3, 4, 5},
+				numbers: []int{1, 2, 3, 4, 5},
 			},
 			want: 15,
+		},
+		{
+			name: "숫자 1,2,3,4 를 입력하면 총 합 10를 반환",
+			args: args{
+				numbers: []int{1, 2, 3, 4},
+			},
+			want: 10,
+		},
+		{
+			name: "숫자 1,2,3 를 입력하면 총 합 6를 반환",
+			args: args{
+				numbers: []int{1, 2, 3},
+			},
+			want: 6,
 		},
 	}
 	for _, tt := range tests {
