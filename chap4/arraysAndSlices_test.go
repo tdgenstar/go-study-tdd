@@ -1,6 +1,9 @@
 package arraysAndSlices
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestSum(t *testing.T) {
 	type args struct {
@@ -37,6 +40,32 @@ func TestSum(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := Sum(tt.args.numbers); got != tt.want {
 				t.Errorf("Sum() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestSumAll(t *testing.T) {
+	type args struct {
+		numbersToSum [][]int
+	}
+	tests := []struct {
+		name     string
+		args     args
+		wantSums []int
+	}{
+		{
+			name: "입력이 {1,2,3}, {1,2} 라면 {6, 3}을 반환",
+			args: args{
+				numbersToSum: [][]int{{1, 2, 3}, {1, 2}},
+			},
+			wantSums: []int{6, 3},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if gotSums := SumAll(tt.args.numbersToSum...); !reflect.DeepEqual(gotSums, tt.wantSums) {
+				t.Errorf("SumAll() = %v, want %v", gotSums, tt.wantSums)
 			}
 		})
 	}
