@@ -1,7 +1,7 @@
 package arraysAndSlices
 
-func Sum(numbers [5]int) (sum int) {
-	for i := 0; i < 5; i++ {
+func Sum(numbers []int) (sum int) {
+	for i := 0; i < len(numbers); i++ {
 		sum += numbers[i]
 	}
 	return
