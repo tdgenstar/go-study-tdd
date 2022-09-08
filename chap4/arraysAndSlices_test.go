@@ -70,3 +70,33 @@ func TestSumAll(t *testing.T) {
 		})
 	}
 }
+
+func TestSumAllTails(t *testing.T) {
+	type args struct {
+		numberToSum [][]int
+	}
+	tests := []struct {
+		name     string
+		args     args
+		wantSums []int
+	}{
+		{
+			name: "맨 앞을 제외한 모든 수를 나열합니다.",
+			args: args{
+				numberToSum: [][]int{
+					{1, 2, 3},
+					{2, 3, 3},
+					{1, 9},
+				},
+			},
+			wantSums: []int{5, 6, 9},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if gotSums := SumAllTails(tt.args.numberToSum...); !reflect.DeepEqual(gotSums, tt.wantSums) {
+				t.Errorf("SumAllTails() = %v, want %v", gotSums, tt.wantSums)
+			}
+		})
+	}
+}
